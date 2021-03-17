@@ -51,6 +51,9 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
+# npm lockfiles
+package-lock.json
+
 # dotenv environment variable files
 .env*
 

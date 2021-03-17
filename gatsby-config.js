@@ -1,36 +1,70 @@
+const config = require('./config.json');
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: config.siteTitle,
+    siteUrl: config.siteUrl,
+  },
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-image`,
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-typescript',
+    "gatsby-plugin-image",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    // {
+    //   resolve: 'gatsby-plugin-google-gtag',
+    //   options: {
+    //     // You can add multiple tracking ids and a pageview event will be fired for all of them.
+    //     trackingIds: [''],
+    //     // This object gets passed directly to the gtag config command
+    //     // This config will be shared across all trackingIds
+    //     gtagConfig: {
+    //       anonymize_ip: true,
+    //     },
+    //     // This object is used for configuration specific to this plugin
+    //     pluginConfig: {
+    //       // Puts tracking script in the head instead of the body
+    //       head: false,
+    //       // Setting this parameter is also optional
+    //       respectDNT: true,
+    //     },
+    //   },
+    // },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `images`,
+        icon: 'src/images/favicon.png',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        // Defaults used for gatsbyImageData and StaticImage
+        defaults: {
+          quality: 90,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
         path: `${__dirname}/src/images`,
       },
+      __key: 'images',
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    // {
+    //   resolve: 'gatsby-source-sanity',
+    //   options: {
+    //     projectId: '',
+    //     dataset: 'production',
+    //   },
+    // },
   ],
 }
