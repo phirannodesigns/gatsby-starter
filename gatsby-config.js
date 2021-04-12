@@ -13,10 +13,10 @@ module.exports = {
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-typescript',
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-image',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     // {
     //   resolve: 'gatsby-plugin-google-gtag',
     //   options: {
@@ -52,9 +52,9 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
-        name: "images",
+        name: 'images',
         path: `${__dirname}/src/images`,
       },
       __key: 'images',
@@ -67,4 +67,4 @@ module.exports = {
     //   },
     // },
   ],
-}
+};
